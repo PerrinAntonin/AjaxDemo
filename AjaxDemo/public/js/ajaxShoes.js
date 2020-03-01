@@ -45,12 +45,12 @@ $(function () {
   });
 
   $('body').on('click', '.deleteClimbingShoes', function () {
-    var book_id = $(this).data("id");
+    var climbingShoes_id = $(this).data("id");
     $confirm = confirm("Are You sure want to delete !");
     if($confirm == true ){
         $.ajax({
             type: "DELETE",
-            url: "{{ route('climbingShoes.store') }}"+'/'+book_id,
+            url: "{{ route('climbingShoes.store') }}"+'/'+climbingShoes_id,
             success: function (data) {
                 table.draw();
             },
