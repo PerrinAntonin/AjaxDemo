@@ -11,7 +11,7 @@
 
 <div class="container">
     <h1>Climbing shoes table</h1>
-    <a class="btn btn-success" href="javascript:void(0)" id="createNewBook"> Add New climbing shoes</a>
+    <a class="btn btn-success" href="javascript:void(0)" id="createNewClimbingShoes"> Add New climbing shoes</a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -34,19 +34,26 @@
                 <h4 class="modal-title" id="modelHeading"></h4>
             </div>
             <div class="modal-body">
-                <form id="bookForm" name="bookForm" class="form-horizontal">
-                   <input type="hidden" name="book_id" id="book_id">
+                <form id="climbingShoesForm" name="climbingShoesForm" class="form-horizontal">
+                   <input type="hidden" name="climbingShoes_id" id="climbingShoes_id">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Title</label>
+                        <label for="name" class="col-sm-2 control-label">name</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="" maxlength="50" required="">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="" maxlength="50" required="">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Details</label>
                         <div class="col-sm-12">
-                            <textarea id="author" name="author" required="" placeholder="Enter Author" class="form-control"></textarea>
+                            <input id="price" name="price" required="" placeholder="Enter price" class="form-control"></input>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Details</label>
+                        <div class="col-sm-12">
+                            <textarea id="quality" name="quality" required="" placeholder="Enter quality" class="form-control"></textarea>
                         </div>
                     </div>
 
@@ -65,5 +72,7 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript" src="{{URL::asset('js/ajaxShoes.js')}}"></script>
 </body>
 </html>

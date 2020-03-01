@@ -15,7 +15,9 @@ class ClimbingShoesController extends Controller
      */
     public function index(Request $request)
     {
+
         if ($request->ajax()) {
+            console.log("test");
             $data = ClimbingShoes::latest()->get();
             return Datatables::of($data)
                     ->addIndexColumn()
@@ -33,6 +35,7 @@ class ClimbingShoesController extends Controller
 
         return view('climbingShoes');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -52,7 +55,7 @@ class ClimbingShoesController extends Controller
      */
     public function store(Request $request)
     {
-        Book::updateOrCreate(['id' => $request->climbingShoes_id],
+        ClimbingShoes::updateOrCreate(['id' => $request->climbingShoes_id],
                 ['name' => $request->name, 'price' => $request->price,'quality' => $request->quality]);
 
         return response()->json(['success'=>'ClimbingShoes saved successfully.']);
