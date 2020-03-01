@@ -16,6 +16,32 @@ $(function () {
           {data: 'action', name: 'action', orderable: false, searchable: false},
       ]
   });
-
+  $('#createNewClimbingShoes').click(function () {
+      $('#saveBtn').val("create-climbingShoes");
+      $('#climbingShoes_id').val('');
+      $('#climbingShoesForm').trigger("reset");
+      $('#modelHeading').html("Create New Climbing shoes.");
+      $('#ajaxModel').modal('show');
+  });
+  
+  $('#saveBtn').click(function (e) {
+      e.preventDefault();
+      $(this).html('Save');
+      $.ajax({
+        data: $('#climbingShoesForm').serialize(),
+        url: "{{ route('climbingShoes.store') }}",
+        type: "POST",
+        dataType: 'json',
+        success: function (data) {
+            $('#climbingShoesForm').trigger("reset");
+            $('#ajaxModel').modal('hide');
+            table.draw();
+        },
+        error: function (data) {
+            console.log('Error:', data);
+            $('#saveBtn').html('Save Changes');
+        }
+    });
+  });
   
 });
