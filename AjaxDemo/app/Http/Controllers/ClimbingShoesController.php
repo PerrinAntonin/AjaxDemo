@@ -31,7 +31,7 @@ class ClimbingShoesController extends Controller
                     ->make(true);
         }
 
-        return view('book');
+        return view('climbingShoes');
     }
 
     /**
@@ -105,5 +105,5 @@ class ClimbingShoesController extends Controller
 
         return response()->json(['success'=>'climbingShoes deleted successfully.']);
     }
-    }
+    
 }
